@@ -3,7 +3,8 @@ const app = express();
 const path = require('path');
 const mainRoutes = require('./src/routes/mainRoutes');
 const charactersRoutes = require('./src/routes/charactersRoutes');
-const PORT = 3000;
+require('dotenv').config({path: './.env'}); // requerimos el módulo dotenv
+const PORT = process.env.PORT || 3000;
 
 
 /* Archivos Estáticos */
@@ -21,5 +22,5 @@ app.use('/', mainRoutes);
 app.use('/api', charactersRoutes);
 
 /* Puerto */
-app.listen(PORT, () => console.log(`Servidor corriendo en: http://localhost:3000`));
+app.listen(PORT, () => console.log(`Servidor corriendo en: http://localhost:${PORT}`));
 

@@ -1,15 +1,16 @@
 const { 
-    getCharacters, 
+    getCharacters,  
+    getCharactersBD,  
     getOneCharacter,
     findCharacters, 
     createCharacter, 
     deleteCharacter 
 } = require('../models/getCharacters');
 
-const characters = getCharacters();
+const characters = getCharactersBD();
 
 module.exports = {
-    getAllCharacters: (req, res) => res.json(characters),
+    getAllCharacters: (req, res) => res.json(characters),    
     getOneCharacter: (req, res) => {
         const id = req.params.id;
         const character = getOneCharacter(id);
